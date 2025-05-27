@@ -2,7 +2,7 @@ import json
 import os
 from pathlib import Path
 
-from transformers import pipeline
+from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 
 BASE_DIR = Path(__file__).resolve().parent  # this is the 'processing' folder
 DATA_PATH = BASE_DIR.parent / "data" / "articles.json"
@@ -12,7 +12,11 @@ OUTPUT_PATH = BASE_DIR.parent / "data" / "summaries.json"
 MODEL_NAME = "csebuetnlp/mT5_multilingual_XLSum"
 
 print("Loading summarization pipeline...")
-summarizer = pipeline("summarization", model=MODEL_NAME, device=-1)  # device=0 for GPU if available, -1 for CPU
+
+# Disable fast tokenizer due to SentencePiece compatibility
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=False)
+model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
+summarizer = pipeline("summarization", model=model, tokenizer=tokenizer, device=-1)
 
 MAX_INPUT_LENGTH = 1024  # max tokens - tokenizer will truncate accordingly
 
@@ -54,7 +58,7 @@ def main():
             })
             print(f"[{i}/{total}] Summarized: {title}")
         except Exception as e:
-            print(f"❌ Failed to summarize '{title}': {e}")
+            print(f"Failed to summarize '{title}': {e}")
 
     # Save summaries
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
