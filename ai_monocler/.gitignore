@@ -1,0 +1,83 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# PyInstaller
+*.manifest
+*.spec
+
+# mypy / pyright / type checker
+.mypy_cache/
+.pyright/
+
+# Pyre type checker
+.pyre/
+
+# VS Code / JetBrains
+.vscode/
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Logs and local runtime files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# CodeCarbon outputs
+emissions.csv
+codecarbon.csv
+emissions/
+
+# Transformers / Hugging Face
+~/.cache/huggingface/
+.huggingface/
+
+# Data outputs
+data/*.json
+data/*.csv
+data/*.parquet
+data/*.txt
+
+# Mac / Linux / Windows system files
+.DS_Store
+Thumbs.db
