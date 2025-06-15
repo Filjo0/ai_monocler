@@ -1,6 +1,8 @@
 import json
 import os
 from pathlib import Path
+
+from codecarbon import EmissionsTracker
 from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
 
 BASE_DIR = Path(__file__).resolve().parent
