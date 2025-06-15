@@ -6,7 +6,7 @@ from typing import Optional, Dict
 def scrape_article(url: str) -> Optional[Dict[str, str]]:
     """
     Extracts title and cleaned article content from a monocler.ru article page.
-    Filters out meta paragraphs and centered promotional content.
+    Filters out meta-paragraphs and centered promotional content.
     """
     try:
         response = requests.get(url)

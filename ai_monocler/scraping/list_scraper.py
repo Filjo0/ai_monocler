@@ -5,7 +5,7 @@ from typing import List, Any
 
 def get_article_links(listing_url: str) -> tuple[list[Any], BeautifulSoup]:
     """
-    Extracts article URLs from pages with <div class="et-description"> blocks.
+    Extract article URLs from pages with <div class="et-description"> blocks.
     """
     response = requests.get(listing_url)
     response.raise_for_status()
